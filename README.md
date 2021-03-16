@@ -15,7 +15,7 @@ Use in your code:
 ```go
 import (
   // ...
-  "github.com/toowoxx/go-lib-fs/fs
+  "github.com/toowoxx/go-lib-fs/fs"
   // ...
 )
 ```
