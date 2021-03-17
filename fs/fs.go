@@ -8,6 +8,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"path/filepath"
+	"strings"
 )
 
 // DirectoryExists returns true if the path exists and
@@ -66,4 +68,16 @@ func CountLines(path string) (int, error) {
 			return count, errors.New(fmt.Sprintf("error during read of %s: %v", path, err))
 		}
 	}
+}
+
+func AddExtension(filename string, ext string) string {
+	return fmt.Sprintf("%s.%s", filename, ext)
+}
+
+func ReplaceExtension(filename string, ext string) string {
+	return fmt.Sprintf("%s.%s", strings.TrimSuffix(filename, filepath.Ext(filename)), ext)
+}
+
+func RemoveExtension(filename string) string {
+	return strings.TrimSuffix(filename, filepath.Ext(filename))
 }
