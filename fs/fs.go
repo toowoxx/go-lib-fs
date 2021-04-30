@@ -32,6 +32,15 @@ func FileExists(path string) bool {
 	return false
 }
 
+// FileSize returns the file size in bytes for the given path
+func FileSize(path string) (int64, error) {
+	stat, err := os.Stat(path)
+	if err != nil {
+		return -1, err
+	}
+	return stat.Size(), nil
+}
+
 // CreateFile creates an
 func CreateFile(path string) error {
 	var f *os.File
