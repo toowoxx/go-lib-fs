@@ -1,3 +1,3 @@
 module github.com/toowoxx/go-lib-fs
 
-go 1.16
+go 1.17
