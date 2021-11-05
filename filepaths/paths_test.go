@@ -4,11 +4,14 @@ import "testing"
 
 func TestComponents(t *testing.T) {
 	c := Components("/")
-	if len(c) != 1 {
-		t.Fatal("expected one empty string, instead got", c)
+	if len(c) != 2 {
+		t.Fatal("expected two empty strings, instead got", c)
 	}
 	if c[0] != "" {
 		t.Fatal("expected first string to be empty, instead got", c[0])
+	}
+	if c[1] != "" {
+		t.Fatal("expected second string to be empty, instead got", c[1])
 	}
 
 	c = Components("/1/2/3.txt")
@@ -37,7 +40,10 @@ func TestComponents(t *testing.T) {
 	}
 
 	c = Components("")
-	if len(c) != 0 {
-		t.Fatal("expected empty slice, instead got", c)
+	if len(c) != 1 {
+		t.Fatal("expected one string, instead got", c)
+	}
+	if c[0] != "" {
+		t.Fatal("expected first string to be empty, instead got", c)
 	}
 }
